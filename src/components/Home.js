@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import SIgn_img from "./SIgn_img";
 
 
 const Home = () => {
+
+    const [inpval, setInpval] = useState({
+
+        name:'',
+        email:"",
+        date:"",
+        password:"",
+    })
 
     const getdata =(e)=>{
         console.log(e.target.value)
