@@ -8,15 +8,51 @@ const Home = () => {
 
     const [inpval, setInpval] = useState({
 
-        name:'',
+        name:"",
         email:"",
         date:"",
-        password:"",
+        password:""
     })
+    console.log(inpval)
 
     const getdata =(e)=>{
-        console.log(e.target.value)
+        // console.log(e.target.value)
 
+        const {value,name}= e.target;
+        // console.log(value,name)
+
+        setInpval(()=>{
+            return{
+                ...inpval,
+                [name]:value
+            }
+        })
+
+    }
+
+    const addData = (e)=>{
+
+        e.preventDefault();//stop default behaiveour
+ 
+        const { name, email, date, password } = inpval;
+
+        if(name === ""){
+            alert("name field is required");
+        } else if (email === ""){
+            alert("email field is requied");
+        } else if(!email.includes("@")){
+            alert("plz enter valid email address");
+        } else if(password === ""){
+            alert("password field is requied");
+        }else if (password.length < 5){
+            alert("password length greater then five");
+
+        }else if (date ===""){
+            alert("Date field is requied")
+        }else{
+            console.log("data added successfully")
+        }
+    
     }
   return (
     <>
@@ -26,10 +62,10 @@ const Home = () => {
             <h3 className="text-center col-lg-6">Sign Up</h3>
             <Form>
               <Form.Group className="mb-3 col-lg-6"  controlId="formBasicEmail">
-                <Form.Control type="email" name='name' onChange={getdata} placeholder="Enter Your Name" />
+                <Form.Control type="name" name='name' onChange={getdata} placeholder="Enter Your Name" />
               </Form.Group>
               <Form.Group className="mb-3 col-lg-6"  controlId="formBasicEmail">
-                <Form.Control type="email" name=' email' onChange={getdata}  placeholder="Enter Your Email" />
+                <Form.Control type="email" name='email' onChange={getdata}  placeholder="Enter Your Email" />
               </Form.Group>
 
               <Form.Group
@@ -38,13 +74,11 @@ const Home = () => {
               >
                 <Form.Control type="password" name='password'  onChange={getdata} placeholder="Password" />
               </Form.Group>
-              <Form.Group className="mb-3 col-lg-6"   controlId="formBasicEmail">
-                <Form.Control type="Date" name='date' onChange={getdata}/>
+              <Form.Group className="mb-3 col-lg-6"   controlId="formBasicEmail ">
+                <Form.Control type="date" name='date' onChange={getdata}/>
               </Form.Group>
-              <Form.Group className="mb-3"  controlId="formBasicCheckbox">
-                <Form.Check type="checkbox"   onChange={getdata} label="Check me out" />
-              </Form.Group>
-              <Button variant="primary" type="submit" className="col-lg-6">
+             
+              <Button variant="primary" type="submit" className="col-lg-6" onClick={addData}>
         Submit
       </Button>
             </Form>
