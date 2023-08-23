@@ -5,6 +5,11 @@ import SIgn_img from "./SIgn_img";
 
 
 const Home = () => {
+
+    const getdata =(e)=>{
+        console.log(e.target.value)
+
+    }
   return (
     <>
       <div className="container mt-3">
@@ -12,24 +17,24 @@ const Home = () => {
           <div className="left_data mt-3 p-3" style={{width:"100%"}}>
             <h3 className="text-center col-lg-6">Sign Up</h3>
             <Form>
-              <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-                <Form.Control type="email" placeholder="Enter Your Name" />
+              <Form.Group className="mb-3 col-lg-6"  controlId="formBasicEmail">
+                <Form.Control type="email" onChange={getdata} placeholder="Enter Your Name" />
               </Form.Group>
-              <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-                <Form.Control type="email" placeholder="Enter Your Email" />
+              <Form.Group className="mb-3 col-lg-6"  controlId="formBasicEmail">
+                <Form.Control type="email"  onChange={getdata}  placeholder="Enter Your Email" />
               </Form.Group>
 
               <Form.Group
                 className="mb-3 col-lg-6"
                 controlId="formBasicPassword"
               >
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password"  onChange={getdata} placeholder="Password" />
               </Form.Group>
-              <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-                <Form.Control type="Date" placeholder="Enter email" />
+              <Form.Group className="mb-3 col-lg-6"   controlId="formBasicEmail">
+                <Form.Control type="Date" onChange={getdata}/>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+              <Form.Group className="mb-3"  controlId="formBasicCheckbox">
+                <Form.Check type="checkbox"   onChange={getdata} label="Check me out" />
               </Form.Group>
               <Button variant="primary" type="submit" className="col-lg-6">
         Submit
