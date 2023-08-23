@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import SIgn_img from "./SIgn_img";
+import { NavLink } from "react-router-dom";
 
 
 const Home = () => {
@@ -13,6 +14,8 @@ const Home = () => {
         date:"",
         password:""
     })
+
+    const [data,setData] = useState([])
     console.log(inpval)
 
     const getdata =(e)=>{
@@ -51,6 +54,7 @@ const Home = () => {
             alert("Date field is requied")
         }else{
             console.log("data added successfully")
+            localStorage.setItem("useryoutube", JSON.stringify([...data , inpval]));
         }
     
     }
@@ -82,7 +86,7 @@ const Home = () => {
         Submit
       </Button>
             </Form>
-            <p className="p-3">Already Have an Account Sign In</p>
+            <p className="p-3">Already Have an Account<span><NavLink to="/login">Sign In</NavLink></span> </p>
           </div>
            
           <SIgn_img/>
